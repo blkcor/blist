@@ -6,7 +6,7 @@ use std::fs;
 use std::fs::Metadata;
 use std::path::{Path, PathBuf};
 use strum_macros::Display;
-use tabled::settings::Color;
+use tabled::settings::{Color, Style};
 use tabled::settings::object::{Columns, Rows};
 use tabled::{Table, Tabled};
 
@@ -120,7 +120,7 @@ fn get_file_name(file_entry: &fs::DirEntry) -> String {
 // print the result as table format
 fn print_table(file_entries: Vec<FileEntry>) {
     let mut tabled_files = Table::new(file_entries);
-    // tabled_files.with(Style::modern_rounded());
+    tabled_files.with(Style::modern_rounded());
     tabled_files.modify(Columns::first(), Color::FG_BRIGHT_CYAN);
     tabled_files.modify(Columns::one(2), Color::FG_BRIGHT_MAGENTA);
     tabled_files.modify(Columns::one(3), Color::FG_BRIGHT_YELLOW);
