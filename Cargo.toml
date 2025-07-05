@@ -1,0 +1,22 @@
+[package]
+name = "bls"
+version = "0.1.0"
+edition = "2024"
+description = "The better ls command line."
+
+[dependencies]
+# crate for parsing command line arguments
+clap = { version = "4.5.40", features = ["derive"] }
+# crate for colored output
+owo-colors = "4.2.2"
+# crate for file system operations
+strum = { version = "0.27.1", features = ["derive"] }
+strum_macros = "0.27.1"
+# crate for pretty printing table for rust structs and enums
+tabled = "0.20.0"
+# crate for parse time
+chrono = "0.4.41"
+# crate for json serialization and deserialization
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+
