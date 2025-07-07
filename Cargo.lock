@@ -74,23 +74,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c08606f8c3cbf4ce6ec8e28fb0014a2c086708fe954eaa885384a6165172e7e8"
 
 [[package]]
-name = "better-ls"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "clap",
- "glob",
- "owo-colors",
- "serde",
- "serde_json",
- "strum",
- "strum_macros",
- "tabled",
- "termcolor",
- "users",
-]
-
-[[package]]
 name = "bumpalo"
 version = "3.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -258,6 +241,23 @@ name = "log"
 version = "0.4.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "13dc2df351e3202783a1fe0d44375f7295ffb4049267b0f3018346dc122a1d94"
+
+[[package]]
+name = "ls_plus"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "clap",
+ "glob",
+ "owo-colors",
+ "serde",
+ "serde_json",
+ "strum",
+ "strum_macros",
+ "tabled",
+ "termcolor",
+ "users",
+]
 
 [[package]]
 name = "memchr"

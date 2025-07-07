@@ -1,22 +1,22 @@
 [package]
-name = "better-ls"
+name = "ls_plus"
 version = "0.1.0"
 edition = "2024"
 description = "The better ls command line."
 authors = ["blkcor <blkcor.dev@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/blkcor/bls"
-documentation = "https://docs.rs/better-ls"
+documentation = "https://docs.rs/ls_plus"
 readme = "README.md"
 keywords = ["cli", "ls", "file", "utility", "terminal"]
 categories = ["command-line-utilities", "filesystem"]
 
 [[bin]]
-name = "better-ls"
+name = "ls_plus"
 path = "src/main.rs"
 
 [lib]
-name = "better-ls"
+name = "ls_plus"
 path = "src/lib.rs"
 
 [dependencies]
