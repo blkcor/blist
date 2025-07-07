@@ -1,23 +1,23 @@
 [package]
-name = "ls_plus"
-version = "0.2.1"
+name = "blist"
+version = "0.1.0"                                                                           # 新包名从 0.1.0 开始
 edition = "2024"
 description = "A modern replacement for ls command with rich features and beautiful output"
 authors = ["blkcor <blkcor.dev@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/blkcor/bls"
-documentation = "https://docs.rs/ls_plus"
+documentation = "https://docs.rs/blist"
 readme = "README.md"
 keywords = ["cli", "ls", "file", "utility", "terminal"]
 categories = ["command-line-utilities", "filesystem"]
 exclude = ["/.github", "/.gitignore", "/tests", "/.vscode"]
 
 [[bin]]
-name = "ls_plus"
+name = "blist"
 path = "src/main.rs"
 
 [lib]
-name = "ls_plus"
+name = "blist"
 path = "src/lib.rs"
 
 [dependencies]

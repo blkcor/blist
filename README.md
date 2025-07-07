@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="assets/logo.svg" alt="BLS Logo" width="200" height="200"/>
+  <img src="assets/logo.svg" alt="BList Logo" width="200" height="200"/>
 </p>
 
-# BLS - Better LS
+# BList - Better ListLI
 
-[![Crates.io](https://img.shields.io/crates/v/ls_plus.svg)](https://crates.io/crates/ls_plus)
-[![Downloads](https://img.shields.io/crates/d/ls_plus.svg)](https://crates.io/crates/ls_plus)
-[![License](https://img.shields.io/crates/l/ls_plus.svg)](LICENSE)
+[![Crates.io](https://img.shields.io/crates/v/blist.svg)](https://crates.io/crates/blist)
+[![Downloads](https://img.shields.io/crates/d/blist.svg)](https://crates.io/crates/blist)
+[![License](https://img.shields.io/crates/l/blist.svg)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-1.70%2B-blue.svg?logo=rust)](https://www.rust-lang.org)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/blkcor/bls/rust.yml?branch=master)](https://github.com/blkcor/bls/actions)
 
@@ -52,21 +52,26 @@
 
 ## 📦 安装
 
+### 从 crates.io 安装
+
+```bash
+cargo install blist
+```
+
 ### 从源码编译
 
 ```bash
-git clone https://github.com/blkcor/bls
-cd bls
+git clone https://github.com/blkcor/blist
+cd blist
 cargo build --release
-cargo install --path .
 ```
 
-编译后的可执行文件位于 `target/release/bls`
+编译后的可执行文件位于 `target/release/blist`
 
-### 使用 cargo 安装
+### cargo install
 
 ```bash
-cargo install bls
+cargo install blist
 ```
 
 ## 🛠️ 使用方法
@@ -75,87 +80,87 @@ cargo install bls
 
 ```bash
 # 列出当前目录
-bls
+blist
 
 # 列出指定目录
-bls --path /home/user/documents
+blist --path /home/user/documents
 
 # 显示隐藏文件
-bls --all
+blist --all
 ```
 
 ### 输出格式
 
 ```bash
 # 表格格式（默认）
-bls --format table
+blist --format table
 
 # 长格式显示
-bls --format long
+blist --format long
 
 # 树状格式
-bls --format tree --recursive
+blist --format tree --recursive
 
 # JSON 输出
-bls --format json
+blist --format json
 ```
 
 ### 过滤功能
 
 ```bash
 # 只显示 Rust 文件
-bls --extensions rs
+blist --extensions rs
 
 # 显示多种扩展名
-bls --extensions rs,txt,md
+blist --extensions rs,txt,md
 
 # 按大小过滤（大于 1KB 的文件）
-bls --min-size 1024
+blist --min-size 1024
 
 # 只显示目录
-bls --dirs-only
+blist --dirs-only
 
 # 使用 glob 模式
-bls --glob "test*"
+blist --glob "test*"
 ```
 
 ### 排序功能
 
 ```bash
 # 按大小排序（降序）
-bls --sort size --order desc
+blist --sort size --order desc
 
 # 按修改时间排序
-bls --sort modified
+blist --sort modified
 
 # 按文件类型排序
-bls --sort type
+blist --sort type
 ```
 
 ### 递归遍历
 
 ```bash
 # 递归列出所有文件
-bls --recursive
+blist --recursive
 
 # 限制递归深度
-bls --recursive --max-depth 2
+blist --recursive --max-depth 2
 
 # 递归显示树状结构
-bls --recursive --format tree
+blist --recursive --format tree
 ```
 
 ### 高级功能
 
 ```bash
 # 人性化大小显示 + 统计摘要
-bls --human-readable --summary
+blist --human-readable --summary
 
 # 组合多个选项
-bls --recursive --extensions rs --sort size --order desc --human-readable
+blist --recursive --extensions rs --sort size --order desc --human-readable
 
 # 长格式显示大文件
-bls --format long --min-size 100000 --sort size --order desc
+blist --format long --min-size 100000 --sort size --order desc
 ```
 
 ## 📊 输出示例
@@ -199,7 +204,7 @@ File Statistics:
 
 ## 🎨 颜色主题
 
-BLS 支持智能颜色主题，根据文件类型自动着色：
+BList 支持智能颜色主题，根据文件类型自动着色：
 
 - **目录** - 蓝色加粗
 - **可执行文件** - 绿色加粗
@@ -271,4 +276,4 @@ src/
 
 ---
 
-**BLS** - 让文件列表变得更简单、更强大！ 🚀
+**BList** - 让文件列表变得更简单、更强大！ 🚀
