@@ -5,19 +5,22 @@
 ## 🚀 功能特色
 
 ### 📋 多种输出格式
+
 - **表格格式** (`--format table`) - 默认的现代化表格显示
 - **长格式** (`--format long`) - 类似 `ls -l` 的详细信息显示
 - **树状格式** (`--format tree`) - 层次化的树状结构显示
-- **JSON格式** (`--format json`) - 机器可读的 JSON 输出
+- **JSON 格式** (`--format json`) - 机器可读的 JSON 输出
 
 ### 🔍 强大的过滤功能
+
 - **扩展名过滤** (`--extensions rs,txt,md`) - 按文件扩展名过滤
 - **大小过滤** (`--min-size 1024 --max-size 1048576`) - 按文件大小范围过滤
 - **类型过滤** (`--dirs-only` / `--files-only`) - 只显示目录或文件
-- **Glob模式** (`--glob "*.rs"`) - 使用通配符模式过滤
+- **Glob 模式** (`--glob "*.rs"`) - 使用通配符模式过滤
 - **隐藏文件** (`--all`) - 显示隐藏文件和目录
 
 ### 📊 智能排序
+
 - **按名称排序** (`--sort name`) - 自然排序，正确处理数字
 - **按大小排序** (`--sort size`) - 按文件大小排序
 - **按时间排序** (`--sort modified/created`) - 按修改或创建时间排序
@@ -25,11 +28,13 @@
 - **排序顺序** (`--order asc/desc`) - 升序或降序
 
 ### 🌲 递归遍历
+
 - **递归列表** (`--recursive`) - 递归遍历子目录
 - **深度控制** (`--max-depth 3`) - 限制递归深度
 - **目录优先** - 递归模式下目录优先排序
 
 ### 📏 人性化显示
+
 - **可读大小** (`--human-readable`) - 显示 KB、MB、GB 等单位
 - **详细信息** (`--long`) - 显示权限、所有者、时间戳等
 - **统计摘要** (`--summary`) - 显示文件统计信息
@@ -40,12 +45,19 @@
 ### 从源码编译
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/blkcor/bls
 cd bls
 cargo build --release
+cargo install --path .
 ```
 
 编译后的可执行文件位于 `target/release/bls`
+
+### 使用 cargo 安装
+
+```bash
+cargo install bls
+```
 
 ## 🛠️ 使用方法
 
@@ -139,6 +151,7 @@ bls --format long --min-size 100000 --sort size --order desc
 ## 📊 输出示例
 
 ### 表格格式
+
 ```
 ╭────────────┬──────┬──────────┬─────────────────────┬─────────────╮
 │ Name       │ Type │ Size     │ Modified            │ Permissions │
@@ -150,6 +163,7 @@ bls --format long --min-size 100000 --sort size --order desc
 ```
 
 ### 长格式
+
 ```
  Permissions   Owner        Group   Size    Modified              Name
  -rw-r--r--    chenzilong   staff   18996   2025-07-07 02:54:50   Cargo.lock
@@ -158,6 +172,7 @@ bls --format long --min-size 100000 --sort size --order desc
 ```
 
 ### 统计摘要
+
 ```
 Summary:
   Files: 8
@@ -189,25 +204,25 @@ BLS 支持智能颜色主题，根据文件类型自动着色：
 
 ## 🔧 命令行选项
 
-| 选项 | 短选项 | 描述 |
-|------|--------|------|
-| `--path <PATH>` | `-p` | 指定要列出的目录路径 |
-| `--format <FORMAT>` | `-f` | 输出格式 (table/long/tree/json) |
-| `--all` | `-a` | 显示隐藏文件和目录 |
-| `--recursive` | `-r` | 递归列出目录 |
-| `--max-depth <DEPTH>` | `-d` | 最大递归深度 |
-| `--sort <FIELD>` | `-s` | 排序字段 (name/size/modified/created/type) |
-| `--order <ORDER>` | `-o` | 排序顺序 (asc/desc) |
-| `--extensions <EXTS>` | `-e` | 按扩展名过滤 |
-| `--min-size <SIZE>` | | 最小文件大小（字节） |
-| `--max-size <SIZE>` | | 最大文件大小（字节） |
-| `--human-readable` | `-H` | 人性化大小显示 |
-| `--long` | `-l` | 详细信息显示 |
-| `--no-color` | | 禁用颜色输出 |
-| `--dirs-only` | | 只显示目录 |
-| `--files-only` | | 只显示文件 |
-| `--glob <PATTERN>` | `-g` | Glob 模式过滤 |
-| `--summary` | | 显示统计摘要 |
+| 选项                  | 短选项 | 描述                                       |
+| --------------------- | ------ | ------------------------------------------ |
+| `--path <PATH>`       | `-p`   | 指定要列出的目录路径                       |
+| `--format <FORMAT>`   | `-f`   | 输出格式 (table/long/tree/json)            |
+| `--all`               | `-a`   | 显示隐藏文件和目录                         |
+| `--recursive`         | `-r`   | 递归列出目录                               |
+| `--max-depth <DEPTH>` | `-d`   | 最大递归深度                               |
+| `--sort <FIELD>`      | `-s`   | 排序字段 (name/size/modified/created/type) |
+| `--order <ORDER>`     | `-o`   | 排序顺序 (asc/desc)                        |
+| `--extensions <EXTS>` | `-e`   | 按扩展名过滤                               |
+| `--min-size <SIZE>`   |        | 最小文件大小（字节）                       |
+| `--max-size <SIZE>`   |        | 最大文件大小（字节）                       |
+| `--human-readable`    | `-H`   | 人性化大小显示                             |
+| `--long`              | `-l`   | 详细信息显示                               |
+| `--no-color`          |        | 禁用颜色输出                               |
+| `--dirs-only`         |        | 只显示目录                                 |
+| `--files-only`        |        | 只显示文件                                 |
+| `--glob <PATTERN>`    | `-g`   | Glob 模式过滤                              |
+| `--summary`           |        | 显示统计摘要                               |
 
 ## 🏗️ 项目结构
 
@@ -235,6 +250,7 @@ src/
 ## 🔄 版本历史
 
 ### v0.1.0
+
 - ✅ 基本文件列表功能
 - ✅ 多种输出格式支持
 - ✅ 强大的过滤和排序功能
@@ -245,4 +261,4 @@ src/
 
 ---
 
-**BLS** - 让文件列表变得更简单、更强大！ 🚀 
+**BLS** - 让文件列表变得更简单、更强大！ 🚀
