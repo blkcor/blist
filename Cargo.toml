@@ -1,5 +1,5 @@
 [package]
-name = "bls"
+name = "better-ls"
 version = "0.1.0"
 edition = "2024"
 description = "The better ls command line."
