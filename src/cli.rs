@@ -48,10 +48,6 @@ pub struct CLI {
     #[arg(short = 'H', long)]
     pub human_readable: bool,
 
-    /// Show detailed file information
-    #[arg(short, long)]
-    pub long: bool,
-
     /// Disable color output
     #[arg(long)]
     pub no_color: bool,

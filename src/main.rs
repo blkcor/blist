@@ -101,19 +101,14 @@ fn main() {
     }
 
     // Print output
-    // If --long is specified, use long format regardless of --format
-    if cli.long {
-        print_long(entries, cli.human_readable, &color_theme);
-    } else {
-        match cli.format.to_lowercase().as_str() {
-            "json" => print_json(entries),
-            "table" => print_table(entries, cli.human_readable, &color_theme),
-            "long" => print_long(entries, cli.human_readable, &color_theme),
-            "tree" => print_tree(entries, cli.human_readable, &color_theme),
-            _ => {
-                eprintln!("Error: Invalid format: {}", cli.format);
-                process::exit(1);
-            }
+    match cli.format.to_lowercase().as_str() {
+        "json" => print_json(entries),
+        "table" => print_table(entries, cli.human_readable, &color_theme),
+        "long" => print_long(entries, cli.human_readable, &color_theme),
+        "tree" => print_tree(entries, cli.human_readable, &color_theme),
+        _ => {
+            eprintln!("Error: Invalid format: {}", cli.format);
+            process::exit(1);
         }
     }
 }
