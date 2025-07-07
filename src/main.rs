@@ -1,12 +1,12 @@
-use bls::{
+use clap::Parser;
+use ls_plus::{
     CLI, ColorTheme, FileFilter, HumanSize, SortField, SortOrder, filter_entries, get_files,
     get_files_recursive, print_json, print_long, print_table, print_tree, sort_entries,
 };
-use clap::Parser;
 use std::path::PathBuf;
 use std::process;
 
-fn print_summary(entries: &[bls::FileEntry]) {
+fn print_summary(entries: &[ls_plus::FileEntry]) {
     let total_files = entries.iter().filter(|e| !e.is_dir()).count();
     let total_dirs = entries.iter().filter(|e| e.is_dir()).count();
     let total_size: u64 = entries.iter().map(|e| e.size()).sum();
