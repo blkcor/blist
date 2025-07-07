@@ -4,6 +4,14 @@ version = "0.1.0"
 edition = "2024"
 description = "The better ls command line."
 
+[[bin]]
+name = "bls"
+path = "src/main.rs"
+
+[lib]
+name = "bls"
+path = "src/lib.rs"
+
 [dependencies]
 # crate for parsing command line arguments
 clap = { version = "4.5.40", features = ["derive"] }
