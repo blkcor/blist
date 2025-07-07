@@ -6,17 +6,17 @@ description = "The better ls command line."
 authors = ["blkcor <blkcor.dev@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/blkcor/bls"
-documentation = "https://docs.rs/bls"
+documentation = "https://docs.rs/better-ls"
 readme = "README.md"
 keywords = ["cli", "ls", "file", "utility", "terminal"]
 categories = ["command-line-utilities", "filesystem"]
 
 [[bin]]
-name = "bls"
+name = "better-ls"
 path = "src/main.rs"
 
 [lib]
-name = "bls"
+name = "better-ls"
 path = "src/lib.rs"
 
 [dependencies]
