@@ -10,7 +10,7 @@ use tabled::settings::{
 };
 
 /// Print the result in table format
-pub fn print_table(entries: Vec<FileEntry>, human_readable: bool, _color_theme: &ColorTheme) {
+pub fn print_table(entries: Vec<FileEntry>, human_readable: bool, color_theme: &ColorTheme) {
     let entries: Vec<TableEntry> = entries
         .into_iter()
         .map(|e| TableEntry::new(e, human_readable))
@@ -19,21 +19,24 @@ pub fn print_table(entries: Vec<FileEntry>, human_readable: bool, _color_theme: 
     let mut table = Table::new(entries);
 
     // 设置表格样式
-    table
-        .with(Style::modern_rounded())
-        .with(Width::wrap(100))
-        // 设置表头颜色为亮青色
-        .with(Modify::new(Rows::first()).with(Color::FG_BRIGHT_CYAN))
-        // 设置名称列为亮蓝色
-        .with(Modify::new(Columns::first()).with(Color::FG_BRIGHT_BLUE))
-        // 设置类型列为亮黄色
-        .with(Modify::new(Columns::new(1..2)).with(Color::FG_YELLOW))
-        // 设置大小列为亮洋红色
-        .with(Modify::new(Columns::new(2..3)).with(Color::FG_MAGENTA))
-        // 设置修改时间列为亮绿色
-        .with(Modify::new(Columns::new(3..4)).with(Color::FG_GREEN))
-        // 设置权限列为亮白色
-        .with(Modify::new(Columns::new(4..5)).with(Color::FG_WHITE));
+    table.with(Style::modern_rounded()).with(Width::wrap(100));
+
+    // 只在启用颜色时应用颜色样式
+    if color_theme.is_enabled() {
+        table
+            // 设置表头颜色为亮青色
+            .with(Modify::new(Rows::first()).with(Color::FG_BRIGHT_CYAN))
+            // 设置名称列为亮蓝色
+            .with(Modify::new(Columns::first()).with(Color::FG_BRIGHT_BLUE))
+            // 设置类型列为亮黄色
+            .with(Modify::new(Columns::new(1..2)).with(Color::FG_YELLOW))
+            // 设置大小列为亮洋红色
+            .with(Modify::new(Columns::new(2..3)).with(Color::FG_MAGENTA))
+            // 设置修改时间列为亮绿色
+            .with(Modify::new(Columns::new(3..4)).with(Color::FG_GREEN))
+            // 设置权限列为亮白色
+            .with(Modify::new(Columns::new(4..5)).with(Color::FG_WHITE));
+    }
 
     println!("{}", table);
 }

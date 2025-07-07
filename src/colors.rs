@@ -13,6 +13,11 @@ impl ColorTheme {
         }
     }
 
+    /// Returns whether colors are enabled
+    pub fn is_enabled(&self) -> bool {
+        self.enabled
+    }
+
     pub fn print_colored<P: AsRef<Path>>(&self, text: &str, path: P) -> std::io::Result<()> {
         let mut stdout = StandardStream::stdout(if self.enabled {
             ColorChoice::Auto
