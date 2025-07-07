@@ -1,23 +1,23 @@
 [package]
-name = "blist"
+name = "ptlist"
 version = "0.1.0"                                                                           # 新包名从 0.1.0 开始
 edition = "2024"
 description = "A modern replacement for ls command with rich features and beautiful output"
 authors = ["blkcor <blkcor.dev@gmail.com>"]
 license = "MIT"
-repository = "https://github.com/blkcor/bls"
-documentation = "https://docs.rs/blist"
+repository = "https://github.com/blkcor/ptlist"
+documentation = "https://docs.rs/ptlist"
 readme = "README.md"
 keywords = ["cli", "ls", "file", "utility", "terminal"]
 categories = ["command-line-utilities", "filesystem"]
 exclude = ["/.github", "/.gitignore", "/tests", "/.vscode"]
 
 [[bin]]
-name = "blist"
+name = "ptlist"
 path = "src/main.rs"
 
 [lib]
-name = "blist"
+name = "ptlist"
 path = "src/lib.rs"
 
 [dependencies]

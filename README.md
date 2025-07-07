@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="assets/logo.svg" alt="BList Logo" width="200" height="200"/>
+  <img src="assets/logo.svg" alt="PtList Logo" width="200" height="200"/>
 </p>
 
-# BList - Better ListLI
+# PtList - Pretty List
 
-[![Crates.io](https://img.shields.io/crates/v/blist.svg)](https://crates.io/crates/blist)
-[![Downloads](https://img.shields.io/crates/d/blist.svg)](https://crates.io/crates/blist)
-[![License](https://img.shields.io/crates/l/blist.svg)](LICENSE)
+[![Crates.io](https://img.shields.io/crates/v/ptlist.svg)](https://crates.io/crates/ptlist)
+[![Downloads](https://img.shields.io/crates/d/ptlist.svg)](https://crates.io/crates/ptlist)
+[![License](https://img.shields.io/crates/l/ptlist.svg)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-1.70%2B-blue.svg?logo=rust)](https://www.rust-lang.org)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/blkcor/bls/rust.yml?branch=master)](https://github.com/blkcor/bls/actions)
 
@@ -55,23 +55,23 @@
 ### 从 crates.io 安装
 
 ```bash
-cargo install blist
+cargo install ptlist
 ```
 
 ### 从源码编译
 
 ```bash
-git clone https://github.com/blkcor/blist
-cd blist
+git clone https://github.com/blkcor/ptlist
+cd ptlist
 cargo build --release
 ```
 
-编译后的可执行文件位于 `target/release/blist`
+编译后的可执行文件位于 `target/release/ptlist`
 
 ### cargo install
 
 ```bash
-cargo install blist
+cargo install ptlist
 ```
 
 ## 🛠️ 使用方法
@@ -80,87 +80,87 @@ cargo install blist
 
 ```bash
 # 列出当前目录
-blist
+ptlist
 
 # 列出指定目录
-blist --path /home/user/documents
+ptlist --path /home/user/documents
 
 # 显示隐藏文件
-blist --all
+ptlist --all
 ```
 
 ### 输出格式
 
 ```bash
 # 表格格式（默认）
-blist --format table
+ptlist --format table
 
 # 长格式显示
-blist --format long
+ptlist --format long
 
 # 树状格式
-blist --format tree --recursive
+ptlist --format tree --recursive
 
 # JSON 输出
-blist --format json
+ptlist --format json
 ```
 
 ### 过滤功能
 
 ```bash
 # 只显示 Rust 文件
-blist --extensions rs
+ptlist --extensions rs
 
 # 显示多种扩展名
-blist --extensions rs,txt,md
+ptlist --extensions rs,txt,md
 
 # 按大小过滤（大于 1KB 的文件）
-blist --min-size 1024
+ptlist --min-size 1024
 
 # 只显示目录
-blist --dirs-only
+ptlist --dirs-only
 
 # 使用 glob 模式
-blist --glob "test*"
+ptlist --glob "test*"
 ```
 
 ### 排序功能
 
 ```bash
 # 按大小排序（降序）
-blist --sort size --order desc
+ptlist --sort size --order desc
 
 # 按修改时间排序
-blist --sort modified
+ptlist --sort modified
 
 # 按文件类型排序
-blist --sort type
+ptlist --sort type
 ```
 
 ### 递归遍历
 
 ```bash
 # 递归列出所有文件
-blist --recursive
+ptlist --recursive
 
 # 限制递归深度
-blist --recursive --max-depth 2
+ptlist --recursive --max-depth 2
 
 # 递归显示树状结构
-blist --recursive --format tree
+ptlist --recursive --format tree
 ```
 
 ### 高级功能
 
 ```bash
 # 人性化大小显示 + 统计摘要
-blist --human-readable --summary
+ptlist --human-readable --summary
 
 # 组合多个选项
-blist --recursive --extensions rs --sort size --order desc --human-readable
+ptlist --recursive --extensions rs --sort size --order desc --human-readable
 
 # 长格式显示大文件
-blist --format long --min-size 100000 --sort size --order desc
+ptlist --format long --min-size 100000 --sort size --order desc
 ```
 
 ## 📊 输出示例
@@ -204,7 +204,7 @@ File Statistics:
 
 ## 🎨 颜色主题
 
-BList 支持智能颜色主题，根据文件类型自动着色：
+ptlist 支持智能颜色主题，根据文件类型自动着色：
 
 - **目录** - 蓝色加粗
 - **可执行文件** - 绿色加粗
@@ -276,4 +276,4 @@ src/
 
 ---
 
-**BList** - 让文件列表变得更简单、更强大！ 🚀
+**ptlist** - 让文件列表变得更简单、更强大！ 🚀
