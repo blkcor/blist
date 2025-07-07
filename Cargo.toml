@@ -17,6 +17,7 @@ path = "src/lib.rs"
 clap = { version = "4.5.40", features = ["derive"] }
 # crate for colored output
 owo-colors = "4.2.2"
+termcolor = "1.4.1"
 # crate for file system operations
 strum = { version = "0.27.1", features = ["derive"] }
 strum_macros = "0.27.1"
@@ -27,4 +28,7 @@ chrono = "0.4.41"
 # crate for json serialization and deserialization
 serde = { version = "1.0.219", features = ["derive"] }
 serde_json = "1.0.140"
-
+# crate for glob pattern matching
+glob = "0.3.1"
+# crate for user and group information
+users = "0.11.0"
