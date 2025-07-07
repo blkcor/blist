@@ -1,8 +1,8 @@
 [package]
 name = "ls_plus"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
-description = "The better ls command line."
+description = "A modern replacement for ls command with rich features and beautiful output"
 authors = ["blkcor <blkcor.dev@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/blkcor/bls"
@@ -10,6 +10,7 @@ documentation = "https://docs.rs/ls_plus"
 readme = "README.md"
 keywords = ["cli", "ls", "file", "utility", "terminal"]
 categories = ["command-line-utilities", "filesystem"]
+exclude = ["/.github", "/.gitignore", "/tests", "/.vscode"]
 
 [[bin]]
 name = "ls_plus"
@@ -39,3 +40,19 @@ serde_json = "1.0.140"
 glob = "0.3.1"
 # crate for user and group information
 users = "0.11.0"
+
+[dev-dependencies]
+# crate for testing
+assert_cmd = "2.0.14"
+predicates = "3.1.0"
+tempfile = "3.10.1"
+
+[profile.release]
+# Enable link-time optimization
+lto = true
+# Enable optimization for size
+opt-level = "s"
+# Strip debug symbols
+strip = true
+# Enable codegen units for better optimization
+codegen-units = 1

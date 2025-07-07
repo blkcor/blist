@@ -43,6 +43,10 @@ impl ColorTheme {
     }
 
     fn get_color_for_path<P: AsRef<Path>>(&self, path: P) -> Option<Color> {
+        if !self.enabled {
+            return None;
+        }
+
         let path = path.as_ref();
 
         if path.is_dir() {
@@ -80,7 +84,7 @@ impl ColorTheme {
             }
 
             // Compressed files
-            Some("zip") | Some("tar") | Some("gz") | Some("xz") | Some("bz2") | Some("7z") => {
+            Some("zip") | Some("tar") | Some("gz") | Some("xz") | Some("bz2" | "7z") => {
                 Some(Color::Red)
             }
 
@@ -90,6 +94,10 @@ impl ColorTheme {
     }
 
     fn should_be_bold(&self, path: &Path) -> bool {
+        if !self.enabled {
+            return false;
+        }
+
         if path.is_dir() {
             return true;
         }
@@ -112,26 +120,61 @@ impl ColorTheme {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::path::PathBuf;
+    use std::fs::{self, File};
+    use tempfile::TempDir;
 
     #[test]
     fn test_color_selection() {
+        let temp_dir = TempDir::new().unwrap();
         let theme = ColorTheme::new(true);
 
-        // Test directory
-        let dir = PathBuf::from("test_dir");
-        assert_eq!(theme.get_color_for_path(&dir), Some(Color::Blue));
+        // Create and test directory
+        let dir_path = temp_dir.path().join("test_dir");
+        fs::create_dir(&dir_path).unwrap();
+        assert_eq!(theme.get_color_for_path(&dir_path), Some(Color::Blue));
 
-        // Test Rust file
-        let rust_file = PathBuf::from("main.rs");
+        // Create and test Rust file
+        let rust_file = temp_dir.path().join("main.rs");
+        File::create(&rust_file).unwrap();
         assert_eq!(theme.get_color_for_path(&rust_file), Some(Color::Red));
 
-        // Test image file
-        let image_file = PathBuf::from("photo.jpg");
+        // Create and test image file
+        let image_file = temp_dir.path().join("photo.jpg");
+        File::create(&image_file).unwrap();
         assert_eq!(theme.get_color_for_path(&image_file), Some(Color::Magenta));
 
-        // Test archive file
-        let archive_file = PathBuf::from("data.zip");
+        // Create and test archive file
+        let archive_file = temp_dir.path().join("data.zip");
+        File::create(&archive_file).unwrap();
         assert_eq!(theme.get_color_for_path(&archive_file), Some(Color::Red));
+
+        // Test color disabled
+        let theme = ColorTheme::new(false);
+        assert_eq!(theme.get_color_for_path(&dir_path), None);
+    }
+
+    #[test]
+    fn test_should_be_bold() {
+        let temp_dir = TempDir::new().unwrap();
+        let theme = ColorTheme::new(true);
+
+        // Create and test directory
+        let dir_path = temp_dir.path().join("test_dir");
+        fs::create_dir(&dir_path).unwrap();
+        assert!(theme.should_be_bold(&dir_path));
+
+        // Create and test archive file
+        let archive_file = temp_dir.path().join("data.zip");
+        File::create(&archive_file).unwrap();
+        assert!(theme.should_be_bold(&archive_file));
+
+        // Create and test regular file
+        let regular_file = temp_dir.path().join("test.txt");
+        File::create(&regular_file).unwrap();
+        assert!(!theme.should_be_bold(&regular_file));
+
+        // Test color disabled
+        let theme = ColorTheme::new(false);
+        assert!(!theme.should_be_bold(&dir_path));
     }
 }
