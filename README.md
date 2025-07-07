@@ -4,10 +4,10 @@
 
 # PtList - Pretty List
 
-[![License](https://img.shields.io/crates/l/ptlist.svg)](LICENSE)
+[![License](https://img.shields.io/crates/l/ptlist)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-1.70%2B-blue.svg?logo=rust)](https://www.rust-lang.org)
-[![Crates.io](https://img.shields.io/crates/v/ptlist.svg)](https://crates.io/crates/ptlist)
-[![Downloads](https://img.shields.io/crates/d/ptlist.svg)](https://crates.io/crates/ptlist)
+[![Crates.io](https://img.shields.io/crates/v/ptlist)](https://crates.io/crates/ptlist)
+[![Downloads](https://img.shields.io/crates/dv/ptlist)](https://crates.io/crates/ptlist)
 
 一个功能强大的现代化文件列表工具，使用 Rust 编写，提供比传统 `ls` 命令更丰富的功能。
 
