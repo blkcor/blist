@@ -1,4 +1,14 @@
+<p align="center">
+  <img src="assets/logo.svg" alt="BLS Logo" width="200" height="200"/>
+</p>
+
 # BLS - Better LS
+
+[![Crates.io](https://img.shields.io/crates/v/ls_plus.svg)](https://crates.io/crates/ls_plus)
+[![Downloads](https://img.shields.io/crates/d/ls_plus.svg)](https://crates.io/crates/ls_plus)
+[![License](https://img.shields.io/crates/l/ls_plus.svg)](LICENSE)
+[![Rust](https://img.shields.io/badge/rust-1.70%2B-blue.svg?logo=rust)](https://www.rust-lang.org)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/blkcor/bls/rust.yml?branch=master)](https://github.com/blkcor/bls/actions)
 
 一个功能强大的现代化文件列表工具，使用 Rust 编写，提供比传统 `ls` 命令更丰富的功能。
 
