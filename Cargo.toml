@@ -1,6 +1,6 @@
 [package]
 name = "ptlist"
-version = "0.2.3"                                                                           # 新包名从 0.1.0 开始
+version = "0.2.4"                                                                           # 新包名从 0.1.0 开始
 edition = "2024"
 description = "A modern replacement for ls command with rich features and beautiful output"
 authors = ["blkcor <blkcor.dev@gmail.com>"]
